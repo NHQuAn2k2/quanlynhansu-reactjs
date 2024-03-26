@@ -73,8 +73,12 @@ export default function EditEmployee() {
     }
   };
   const handleEdit = async () => {
+    const newData = {
+      ...data,
+      namsinh: dayjs(data.namsinh).format("YYYY-MM-DD"),
+    };
     try {
-      await axios.post(`${api}/sua-nhan-vien/${id}`, data);
+      await axios.post(`${api}/sua-nhan-vien/${id}`, newData);
       navigate("/nhan-vien");
       window.location.reload();
     } catch (error) {
