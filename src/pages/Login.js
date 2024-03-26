@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { grey } from "@mui/material/colors";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { api } from "../utils/constant";
 export default function Login() {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
@@ -27,7 +28,7 @@ export default function Login() {
         window.alert("vui long nhap day du thong tin!");
         return;
       }
-      const res = await axios.post("http://localhost:3001/login", loginData);
+      const res = await axios.post(`${api}/login`, loginData);
       const token = res.data.token;
       localStorage.setItem("token", token);
       navigate("/nhan-vien");
