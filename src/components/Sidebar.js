@@ -42,6 +42,7 @@ export default function Sidebar() {
       setAnchorEl(null);
     }
     localStorage.removeItem("token");
+    localStorage.setItem("selected", 1);
     navigate("/login");
     setAnchorEl(null);
     window.location.reload();
